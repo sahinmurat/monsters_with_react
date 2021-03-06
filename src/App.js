@@ -6,7 +6,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      monsters: []
+      monsters: [],
+      searchField: ''
     }
   }
   componentDidMount() {
@@ -14,6 +15,7 @@ class App extends Component {
       .then(res => res.json(res))
       .then(users => this.setState({ monsters: users }))
   }
+
   // There is two usage for props to transfer. This usage works too
   // <CardList >
   //    {this.state.monsters.map(monster => (
@@ -22,9 +24,18 @@ class App extends Component {
   // </CardList>
 
 render() {
+
+  const {monsters, searchField } = this.state;
+  const filterMonsters = monsters.filter(monster => 
+    monster.name.toLowerCase().includes(searchField.toLowerCase()))
+
   return (
     <div className="App">
-      <CardList monsters={this.state.monsters} />
+    <input 
+    type='search' 
+    onChange={e => this.setState({ searchField : e.target.value }) }
+    placeholder='serach monster!' />
+      <CardList monsters={filterMonsters} />
     </div>
   );
 }
