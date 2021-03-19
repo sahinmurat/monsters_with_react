@@ -1,5 +1,7 @@
 ## Here is my website https://sahinmurat.github.io/monsters_with_react/
 
+### In this project I have used class component, because it's nowadays rearly used and everyone can need it to understand the other's code !
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
